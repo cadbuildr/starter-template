@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "starter-template"
+version = "0.1.0"
+description = "Starter template for new CAD projects with CADBuildr"
+packages = [{include = "starter"}]
+authors = ["CadBuildr Team <clement@cadbuildr.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+cadbuildr-foundation = "^0.0.0.14"
+cadbuildr-stdlib = "^0.0.0.2"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+websockets = "^13.1"
+
+[tool.cadbuildr]
+logo = "logo.png"
+
+[tool.cadbuildr.dependencies]
+cadbuildr-foundation = "^0.0.0.14"
+cadbuildr-stdlib = "^0.0.0.2"

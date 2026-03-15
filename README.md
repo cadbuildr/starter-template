@@ -6,6 +6,16 @@ A starter repository for new CAD projects with CADBuildr.
 
 This is a template repository for new CAD projects with CADBuildr. You can get started by clicking "Use this template" button on the GitHub repository.
 
+You can also clone this repository and start working on your own project.
+```bash
+git clone https://github.com/cadbuildr/starter-template.git
+cd starter-template
+poetry install
+```
+
+Then you can start working on your own project.
+
+
 ## Pre-requisites
 
 - To run this example you will need to have python and [poetry](https://python.org/pypi/poetry)

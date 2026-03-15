@@ -7,7 +7,7 @@ authors = ["CadBuildr Team <clement@cadbuildr.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-cadbuildr-foundation = "^0.0.0.14"
+cadbuildr-foundation = "^0.2.2"
 cadbuildr-stdlib = "^0.0.0.2"
 
 [tool.poetry.group.dev.dependencies]
@@ -18,5 +18,5 @@ websockets = "^13.1"
 logo = "logo.png"
 
 [tool.cadbuildr.dependencies]
-cadbuildr-foundation = "^0.0.0.14"
+cadbuildr-foundation = "^0.2.2"
 cadbuildr-stdlib = "^0.0.0.2"

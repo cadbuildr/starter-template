@@ -1,19 +1,34 @@
-[tool.poetry]
+[project]
 name = "starter-template"
 version = "0.1.0"
 description = "Starter template for new CAD projects with CADBuildr"
-packages = [{include = "starter"}]
-authors = ["CadBuildr Team <clement@cadbuildr.com>"]
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "CadBuildr Team", email = "clement@cadbuildr.com" },
+]
+dependencies = [
+    "cadbuildr-foundation>=0.2.2",
+    "cadbuildr-stdlib>=0.0.0.2",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-cadbuildr-foundation = "^0.2.2"
-cadbuildr-stdlib = "^0.0.0.2"
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+    "websockets>=13.1",
+]
 
-[tool.poetry.group.dev.dependencies]
-ipykernel = "^6.29.5"
-websockets = "^13.1"
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
+[tool.hatch.build.targets.wheel]
+packages = ["starter"]
+
+# Consumed by the CADBuildr in-browser Pyodide runtime to install runtime
+# dependencies via micropip. Mirrors `[project.dependencies]` but uses
+# poetry-style version specifiers — the runtime parses these directly, see
+# `tsjs/packages/organisms/python-runner/.../PyodideContext.tsx`.
 [tool.cadbuildr]
 logo = "logo.png"
 

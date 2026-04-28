@@ -10,7 +10,7 @@ You can also clone this repository and start working on your own project.
 ```bash
 git clone https://github.com/cadbuildr/starter-template.git
 cd starter-template
-poetry install
+uv sync
 ```
 
 Then you can start working on your own project.
@@ -18,7 +18,7 @@ Then you can start working on your own project.
 
 ## Pre-requisites
 
-- To run this example you will need to have python and [poetry](https://python.org/pypi/poetry)
+- To run this example you will need [uv](https://docs.astral.sh/uv/) and Python 3.10+
 - we recomend using [VSCode](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 - In order to visualize the CAD models you will need to access the CADBuildr [viewer](https://hub.cadbuildr.com/viewer)
 
@@ -27,7 +27,7 @@ Then you can start working on your own project.
 ```bash
 cd starter-template
 
-poetry install
+uv sync
 ```
 
 This will install the dependencies, including the [foundation](https://github.com/cadbuildr/foundation) package.

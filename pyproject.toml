@@ -8,7 +8,7 @@ authors = [
     { name = "CadBuildr Team", email = "clement@cadbuildr.com" },
 ]
 dependencies = [
-    "cadbuildr-foundation>=0.2.2",
+    "cadbuildr-foundation>=0.2.6",
     "cadbuildr-stdlib>=0.0.0.2",
 ]
 
@@ -33,5 +33,5 @@ packages = ["starter"]
 logo = "logo.png"
 
 [tool.cadbuildr.dependencies]
-cadbuildr-foundation = "^0.2.2"
+cadbuildr-foundation = "^0.2.6"
 cadbuildr-stdlib = "^0.0.0.2"

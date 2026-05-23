@@ -29,7 +29,8 @@ const STARTER_IMPORT_PATH = "starter";
 const SCENE_BG = "#0e1216";
 
 const REPO_HTTPS = "https://github.com/cadbuildr/starter-template";
-const PROTOTYPE_DOWNLOAD = "https://github.com/cadbuildr"; // placeholder — point at the prototype landing once it's up
+// CADbuildr Prototype download page (web app's /downloads route on cadbuildr.com).
+const PROTOTYPE_DOWNLOAD = "https://cadbuildr.com/downloads";
 
 function resolveStarterWheelUrl(): string {
   const explicit = (import.meta.env.VITE_STARTER_PACKAGE_WHEEL_URL as string | undefined)?.trim();
@@ -218,7 +219,7 @@ function App(): React.ReactElement {
         <p className="lead">
           This is the starter template — a tiny Python package with three example parts
           (a plate, a spacer, and the assembled office sign you see on the right). Fork
-          it, open it in the CADbuildr prototype, and you're building.
+          it, open it in CADbuildr Prototype, and you're building.
         </p>
         <div className="badges">
           <span className="badge">cadbuildr-foundation</span>
@@ -246,15 +247,16 @@ function App(): React.ReactElement {
             <li>
               <strong>
                 <Download size={14} style={{ verticalAlign: "-2px", marginRight: 6 }} />
-                Open it in the CADbuildr prototype
+                Open it in CADbuildr Prototype
               </strong>
               <p>
-                The desktop app shells the in-browser workbench and runs your Python
-                with the system interpreter, so you get hot-reload + a real CAD viewer.
-                File → Open folder → pick the cloned <code>starter-template/</code>.
+                CADbuildr Prototype is the desktop app — it shells the in-browser
+                workbench and runs your Python with the system interpreter, so you get
+                hot-reload + a real CAD viewer. File → Open folder → pick the cloned
+                <code> starter-template/</code>.
               </p>
               <a className="cta" href={PROTOTYPE_DOWNLOAD} target="_blank" rel="noreferrer">
-                Get the prototype <ExternalLink size={14} />
+                Get CADbuildr Prototype <ExternalLink size={14} />
               </a>
             </li>
             <li>
@@ -264,7 +266,7 @@ function App(): React.ReactElement {
               </strong>
               <p>
                 Open <code>starter/office_sign_assy.py</code> and hit the Play button —
-                the prototype renders the assembly in the viewer. Tweak parameters,
+                CADbuildr Prototype renders the assembly in the viewer. Tweak parameters,
                 hit Play again, watch it reshape.
               </p>
             </li>

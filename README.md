@@ -11,9 +11,9 @@ live through the CADbuildr SDK.
 
 ## Get started
 
-The fastest path is the desktop **CADbuildr prototype app** — it shells
-the in-browser workbench and runs your Python with the system
-interpreter, so you get hot-reload + a real CAD viewer.
+The fastest path is **[CADbuildr Prototype](https://cadbuildr.com/downloads)** —
+our desktop app. It shells the in-browser workbench and runs your Python
+with the system interpreter, so you get hot-reload + a real CAD viewer.
 
 ```bash
 # 1. fork or clone
@@ -24,16 +24,18 @@ cd starter-template
 uv sync
 ```
 
-Then open `starter-template/` in the **CADbuildr prototype** (File → Open
+Then open `starter-template/` in **CADbuildr Prototype** (File → Open
 folder), press **Play** on `starter/office_sign_assy.py`, and the
 assembly renders in the viewer. Edit the file, hit Play again, watch it
 reshape.
 
-### Don't have the prototype yet?
+### Don't have CADbuildr Prototype yet?
+
+[Download it from cadbuildr.com/downloads](https://cadbuildr.com/downloads).
 
 You can also run any example as a plain Python script — it'll print the
 DAG and call `show(...)`. To see the geometry in 3D you'll need either
-the prototype or the public viewer at
+CADbuildr Prototype or the public viewer at
 [hub.cadbuildr.com/viewer](https://hub.cadbuildr.com/viewer).
 
 ```bash
@@ -49,7 +51,7 @@ uv run python starter/office_sign_assy.py
 │   └── office_sign_assy.py        Assembly: 1 plate + 3 spacers
 ├── github-io/              Vite + R3F demo site (deploys to GitHub Pages)
 ├── pyproject.toml          Python package manifest
-└── logo.png                used by the prototype's project picker
+└── logo.png                used by CADbuildr Prototype's project picker
 ```
 
 ## Make it your own

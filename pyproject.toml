@@ -1,0 +1,33 @@
+[project]
+name = "starter-template"
+version = "0.1.1"
+description = "Starter template for new CAD projects with CADbuildr."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "CADbuildr Team", email = "clement@cadbuildr.com" },
+]
+dependencies = [
+    "cadbuildr-foundation>=0.2.8,<0.3.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["starter"]
+
+# Consumed by the CADbuildr in-browser Pyodide runtime to install runtime
+# dependencies via micropip. Mirrors `[project.dependencies]` but uses
+# poetry-style version specifiers — the runtime parses these directly.
+[tool.cadbuildr]
+logo = "logo.png"
+
+[tool.cadbuildr.dependencies]
+cadbuildr-foundation = "^0.2.8"

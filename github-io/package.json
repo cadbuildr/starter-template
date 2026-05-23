@@ -1,0 +1,35 @@
+{
+  "name": "starter-template-github-io",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:starter-wheel": "cd .. && uv build",
+    "sync-starter-wheel": "pnpm run build:starter-wheel && mkdir -p public/local-starter && cp ../dist/starter_template-*.whl public/local-starter/",
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cadbuildr/cad-kernel-r3f": "^0.2.0",
+    "@cadbuildr/cad-pyodide-runtime": "^0.1.1",
+    "@cadbuildr/sdk-react": "^0.2.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "lucide-react": "^0.490.0",
+    "pyodide": "^0.29.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.169.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.14"
+  }
+}

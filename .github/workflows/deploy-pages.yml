@@ -1,0 +1,76 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Build the Python wheel
+        run: uv build
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install JS deps
+        working-directory: github-io
+        # `npm install` (not `npm ci`) so a fresh fork doesn't need a
+        # checked-in lockfile.
+        run: npm install --no-audit --no-fund
+
+      - name: Stage wheel for Pyodide
+        run: |
+          mkdir -p github-io/public/local-starter
+          cp dist/starter_template-*.whl github-io/public/local-starter/
+
+      - name: Build the site (Vite)
+        working-directory: github-io
+        env:
+          # GH Pages serves the repo at /starter-template/ — the bundle and
+          # the in-page wheel fetch both need that base path.
+          VITE_APP_BASE_PATH: /starter-template/
+          # Publishable keyId (the public half of an `cbsdk_*` partner key).
+          # Mint one on https://hub.cadbuildr.com/settings with allowed_origins
+          # = `https://<owner>.github.io` and allowed_projects = `starter-template`,
+          # then add it as a repo secret named CADBUILDR_SDK_KEY_ID.
+          VITE_CADBUILDR_SDK_KEY_ID: ${{ secrets.CADBUILDR_SDK_KEY_ID }}
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: github-io/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -38,7 +38,7 @@ class CadbuildrSign(Assembly):
     def _add_spacers(self):
         """Add the three spacers to the assembly."""
         radius = 130  # Same as hole positions in plate
-        for angle_deg in [0, 120, 240]:
+        for angle_deg in [0, 90, 180, 270]:
             angle_rad = math.radians(angle_deg)
             x = radius * math.cos(angle_rad)
             y = radius * math.sin(angle_rad)

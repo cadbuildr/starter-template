@@ -29,11 +29,12 @@ class CadbuildrPlate(Part):
 
         self.text_svg = """
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 50">
-          <text x="0" y="40" font-family="poppins" font-size="40">CADBuildr</text>
+          <text x="0" y="40" font-family="poppins" font-size="40">CAD</text>
         </svg>
         """
 
         self._create_plate()
+        self.paint("green")
 
     def _create_plate(self):
         """Create the plate with all its features."""
@@ -69,7 +70,7 @@ class CadbuildrPlate(Part):
     def _create_mounting_holes(self):
         """Create the mounting holes in the plate."""
         s = Sketch(self.xy())
-        for angle_deg in [0, 120, 240]:
+        for angle_deg in [0, 90, 180, 270]:
             angle_rad = math.radians(angle_deg)
             x = self.hole_radius * math.cos(angle_rad)
             y = self.hole_radius * math.sin(angle_rad)
